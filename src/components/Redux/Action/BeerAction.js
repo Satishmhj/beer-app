@@ -10,8 +10,10 @@ export const beerApi = () => async (dispatch) => {
       return data;
     });
 
+    console.log(res);
+
   dispatch({
     type: BEER_LIST,
-    payload: res.data,
+    payload: res,
   });
 };

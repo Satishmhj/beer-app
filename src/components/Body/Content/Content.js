@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { beerApi } from "../Redux/Action/BeerAction";
+import { beerApi } from "../../Redux/Action/BeerAction";
+import "../Content/content.css";
 
 const Content = () => {
   const beers = useSelector((state) => state.beers.beers);
-  console.log(beers);
 
   let dispatch = useDispatch();
 
@@ -20,15 +20,15 @@ const Content = () => {
         </div>
         <div className="row">
           {beers?.map((items) => {
-            const { description, id, image, name } = items;
+            const { description, id, image_url, name } = items;
             return (
               <div key={id} className="col-4 mt-3">
                 <div class="card">
-                  {/* <img
+                  <img
                     class="card-img-top"
-                    src={``}
+                    src={`https://images.punkapi.com/v2/${image_url}`}
                     alt="Card image cap"
-                  /> */}
+                  />
                   <div className="card-body">
                     <b> {name}</b>
                     <br />
