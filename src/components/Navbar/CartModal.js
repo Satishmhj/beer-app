@@ -1,7 +1,16 @@
 import React from "react";
+import { FaTrash } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { RemoveFromCart } from "../Redux/Action/AddToCart";
 
 const CartModal = (props) => {
-  const { setCartModal } = props;
+  const { setCartModal, cartData, setCartData } = props;
+
+  const remove = useSelector((state) => state.add.add);
+
+  let dispatch = useDispatch();
+
+  console.log(remove);
   return (
     <>
       <div
@@ -36,15 +45,34 @@ const CartModal = (props) => {
                 </span>
               </button>
             </div>
-            <div class="modal-body">...</div>
+            <div class="modal-body">
+              {cartData.map((items, index) => {
+                const { name, image_url } = items;
+                return (
+                  <div className="d-flex justify-content-around">
+                    <div>
+                      <img src={`${image_url}`} style={{ width: "15px" }} />
+                    </div>
+                    <div>
+                      <b>{name}</b>
+                    </div>
+                    <div>
+                      <a>
+                        <FaTrash
+                          onClick={() => {
+                            let data = [...cartData];
+                            data.splice(index, 1);
+                            setCartData(data);
+                            dispatch(RemoveFromCart());
+                          }}
+                        />
+                      </a>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
             <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
               <button type="button" class="btn btn-success">
                 CheckOut
               </button>

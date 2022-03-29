@@ -6,16 +6,26 @@ import { IoBeerSharp } from "react-icons/io";
 import { GiBeerStein } from "react-icons/gi";
 import { useNavigate } from "react-router";
 import CartModal from "./CartModal";
+import { useSelector } from "react-redux";
 // import "bootstrap/dist/js/bootstrap";
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const { setCartData, cartData } = props;
   let navigate = useNavigate();
+
+  const add = useSelector((state) => state.add.add);
+  console.log(add);
 
   const [cartModal, setCartModal] = useState(false);
   return (
     <>
       {cartModal && (
-        <CartModal setCartModal={setCartModal} cartModal={cartModal} />
+        <CartModal
+          setCartModal={setCartModal}
+          cartModal={cartModal}
+          cartData={cartData}
+          setCartData={setCartData}
+        />
       )}
       <nav className="navbar navbar-expand-lg navbar-light  d-flex justify-content-around bg-primary">
         <div className="">
@@ -84,6 +94,15 @@ const Navbar = () => {
                 >
                   Cart
                   <BsFillCartFill />
+                  <div>
+                    <span
+                      class="position-absolute  translate-middle badge rounded-pill bg-danger border rounded-circle"
+                      style={{ marginLeft: "15px" }}
+                    >
+                      {add}
+                      <span class="visually-hidden">unread messages</span>
+                    </span>
+                  </div>
                 </a>
               </li>
               <li class="nav-item">
