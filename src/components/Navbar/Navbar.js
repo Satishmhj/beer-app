@@ -1,16 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { AiFillHome } from "react-icons/ai";
 import { BsFillCartFill } from "react-icons/bs";
 import { FaUserAlt } from "react-icons/fa";
 import { IoBeerSharp } from "react-icons/io";
 import { GiBeerStein } from "react-icons/gi";
 import { useNavigate } from "react-router";
+import CartModal from "./CartModal";
 // import "bootstrap/dist/js/bootstrap";
 
 const Navbar = () => {
   let navigate = useNavigate();
+
+  const [cartModal, setCartModal] = useState(false);
   return (
     <>
+      {cartModal && (
+        <CartModal setCartModal={setCartModal} cartModal={cartModal} />
+      )}
       <nav className="navbar navbar-expand-lg navbar-light  d-flex justify-content-around bg-primary">
         <div className="">
           <img
@@ -18,10 +24,14 @@ const Navbar = () => {
             alt="logo"
             style={{ width: "42px", height: "auto", borderRadius: "26px" }}
           />
-          <a class="navbar-brand text-white" href="#" style={{paddingLeft: "5px"}}
-          onClick={() => {
-            navigate("/")
-          }}>
+          <a
+            class="navbar-brand text-white"
+            href="#"
+            style={{ paddingLeft: "5px" }}
+            onClick={() => {
+              navigate("/");
+            }}
+          >
             HangOver
           </a>
         </div>
@@ -68,6 +78,9 @@ const Navbar = () => {
                 <a
                   class="nav-link text-white  d-flex justify-content-center"
                   href="#"
+                  onClick={() => {
+                    setCartModal(true);
+                  }}
                 >
                   Cart
                   <BsFillCartFill />

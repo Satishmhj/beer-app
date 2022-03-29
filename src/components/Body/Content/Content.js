@@ -15,24 +15,27 @@ const Content = () => {
   return (
     <>
       <div className="container">
-        <div className="display-4 d-flex justify-content-center mt-3">
+        <div className="display-4 d-flex justify-content-center  text-primary mt-3">
           Beers
         </div>
         <div className="row">
           {beers?.map((items) => {
-            const { description, id, image_url, name } = items;
+            const { description, id, image_url, name, tagline } = items;
             return (
               <div key={id} className="col-4 mt-3">
-                <div class="card">
+                <div class="card" style={{ maxHeight: "40vh" }}>
                   <img
-                    class="card-img-top"
+                    className="card-img-top"
                     src={`https://images.punkapi.com/v2/${image_url}`}
                     alt="Card image cap"
                   />
                   <div className="card-body">
                     <b> {name}</b>
                     <br />
-                    <p>{description}</p>
+                    <p>{tagline}</p>
+                    <div className="d-flex justify-content-center">
+                      <button className="btn btn-primary">Add to Cart</button>
+                    </div>
                   </div>
                 </div>
               </div>
