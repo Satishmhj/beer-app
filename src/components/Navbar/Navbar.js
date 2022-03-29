@@ -18,7 +18,10 @@ const Navbar = () => {
             alt="logo"
             style={{ width: "42px", height: "auto", borderRadius: "26px" }}
           />
-          <a class="navbar-brand text-white" href="#">
+          <a class="navbar-brand text-white" href="#" style={{paddingLeft: "5px"}}
+          onClick={() => {
+            navigate("/")
+          }}>
             HangOver
           </a>
         </div>
@@ -42,7 +45,7 @@ const Navbar = () => {
                   class="nav-link text-white d-flex justify-content-center"
                   href="#"
                   onClick={() => {
-                    navigate("/")
+                    navigate("/");
                   }}
                 >
                   <AiFillHome />
@@ -54,7 +57,7 @@ const Navbar = () => {
                   class="nav-link text-white d-flex justify-content-center"
                   href="#"
                   onClick={() => {
-                    navigate("/content")
+                    navigate("/content");
                   }}
                 >
                   <GiBeerStein />
