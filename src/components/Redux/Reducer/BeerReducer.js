@@ -1,7 +1,7 @@
 import { BEER_LIST, BEER_LIST_FETCHING } from "../Constant";
 
 const INITIAL_STATE = {
-  products: [],
+  beers: [],
   isLoading: false,
 };
 
@@ -16,7 +16,7 @@ const beerReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         isLoading: false,
-        products: action.payload,
+        beers: action.payload,
       };
 
     default:

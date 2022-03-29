@@ -1,0 +1,29 @@
+#nav {
+  background-color: chocolate;
+}
+.header {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+.btn-solid {
+  background-color: transparent;
+  padding: 0.3rem 1rem;
+  border-width: 0.06rem;
+}
+.btn:hover {
+  transition: all 1s ease;
+  box-shadow: 0 0 1rem -0.5rem black;
+}
+.list {
+  display: flex;
+  align-items: center;
+}
+
+li {
+  margin-left: 1.5rem;
+}
+a {
+  font-weight: 400;
+}
