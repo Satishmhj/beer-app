@@ -1,6 +1,7 @@
 import React from "react";
 import { FaTrash } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 import { RemoveFromCart } from "../Redux/Action/AddToCart";
 
 const CartModal = (props) => {
@@ -9,6 +10,7 @@ const CartModal = (props) => {
   const remove = useSelector((state) => state.add.add);
 
   let dispatch = useDispatch();
+  let navigate = useNavigate();
 
   console.log(remove);
   return (
@@ -73,7 +75,14 @@ const CartModal = (props) => {
               })}
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-success">
+              <button
+                type="button"
+                class="btn btn-success"
+                onClick={() => {
+                  navigate("/checkout");
+                  setCartModal(false);
+                }}
+              >
                 CheckOut
               </button>
             </div>
