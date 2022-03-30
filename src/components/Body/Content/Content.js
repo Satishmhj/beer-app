@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import Loading from "../../Loading/Loading";
 import { CLickAddToCart } from "../../Redux/Action/AddToCart";
 import { beerApi } from "../../Redux/Action/BeerAction";
@@ -39,7 +40,16 @@ const Content = (props) => {
                     alt="Card image cap"
                   />
                   <div className="card-body">
-                    <b> {name}</b>
+                    <Link
+                      to={"/contentDetail"}
+                      state={{ items }}
+                      style={{
+                        color: "black",
+                        textDecoration: "none",
+                      }}
+                    >
+                      <b>{name}</b>
+                    </Link>
                     <br />
                     <b>first_brewed: {first_brewed}</b>
                     <br />
