@@ -14,7 +14,7 @@ const Home = () => {
               "You can't buy happiness, but beer comes pretty close"
               <br />
             </b>
-            <div className="d-flex justify-content-center">
+            <div className="d-flex pt-4"  style={{paddingLeft: "8em"}}>
               <button class="btn btn-primary">Learn More</button>
             </div>
           </p>
