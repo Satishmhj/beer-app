@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 import { RemoveFromCart } from "../Redux/Action/AddToCart";
 
 const CartModal = (props) => {
-  const { setCartModal, cartData, setCartData } = props;
+  const { setCartModal, cartData, setCartData, add } = props;
 
   const remove = useSelector((state) => state.add.add);
 
@@ -75,16 +75,22 @@ const CartModal = (props) => {
               })}
             </div>
             <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-success"
-                onClick={() => {
-                  navigate("/checkout");
-                  setCartModal(false);
-                }}
-              >
-                CheckOut
-              </button>
+              {add ? (
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  onClick={() => {
+                    navigate("/checkout");
+                    setCartModal(false);
+                  }}
+                >
+                  CheckOut
+                </button>
+              ) : (
+                <button type="button" class="btn btn-success" disabled>
+                  CheckOut
+                </button>
+              )}
             </div>
           </div>
         </div>

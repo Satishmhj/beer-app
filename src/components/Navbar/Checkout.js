@@ -8,7 +8,7 @@ const Checkout = () => {
     name: Yup.string().required("name is required"),
     billingAddress: Yup.string().required("billing address required"),
     deliverAddress: Yup.string().required("delivery address is required"),
-    telephoneNumber: Yup.number().required("telephone number is required"),
+    phoneNumber: Yup.number().required("phone number is required"),
     currentDate: Yup.date().required("date is required"),
   });
 
@@ -34,7 +34,7 @@ const Checkout = () => {
               name: "",
               billingAddress: "",
               deliverAddress: "",
-              telephoneNumber: "",
+              phoneNumber: "",
               currentDate: "",
             }}
             validationSchema={validation}
@@ -102,19 +102,19 @@ const Checkout = () => {
                     errors.deliverAddress}
                 </a>
                 <br />
-                <b className="display-6">Telephone Number : </b>
+                <b className="display-6">Phone Number : </b>
                 <input
                   type="number"
-                  name="telephoneNumber"
+                  name="phoneNumber"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.telephoneNumber}
+                  value={values.phoneNumber}
                   className="form-control mt-3 bg-light"
                 />
                 <a className="text-danger">
-                  {errors.telephoneNumber &&
-                    touched.telephoneNumber &&
-                    errors.telephoneNumber}
+                  {errors.phoneNumber &&
+                    touched.phoneNumber &&
+                    errors.phoneNumber}
                 </a>
                 <br />
                 <b className="display-6">Date : </b>

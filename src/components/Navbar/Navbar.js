@@ -25,6 +25,7 @@ const Navbar = (props) => {
           cartModal={cartModal}
           cartData={cartData}
           setCartData={setCartData}
+          add={add}
         />
       )}
       <nav className="navbar navbar-expand-lg navbar-light  d-flex justify-content-around bg-primary">
