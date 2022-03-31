@@ -53,7 +53,7 @@ const ContentDetail = () => {
         <Tabs>
           <TabList>
             <Tab>Description</Tab>
-            <Tab>Ingredients</Tab>
+            {/* <Tab>Ingredients</Tab> */}
             <Tab>Food_pairing</Tab>
             <Tab>Brewers_tips</Tab>
           </TabList>
@@ -61,9 +61,9 @@ const ContentDetail = () => {
           <TabPanel>
             <b>{description}</b>
           </TabPanel>
-          <TabPanel>
+          {/* <TabPanel>
             <b>{ingredients}</b>
-          </TabPanel>
+          </TabPanel> */}
           <TabPanel>
             <b>{food_pairing}</b>
           </TabPanel>

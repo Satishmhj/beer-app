@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { filterBeers } from "../../Redux/Action/FilterAction";
 
 const FilterModal = (props) => {
   const { setFilter } = props;
+
+  const [filterData, setFilterData] = useState({});
+
+  let dispatch = useDispatch();
 
   return (
     <div>
@@ -35,13 +41,30 @@ const FilterModal = (props) => {
             <div class="modal-body">
               <div className="m-2">
                 <b className="d-flex justify-content-center">
-                  {" "}
                   Select range of IBU :
                 </b>
                 <div className="d-flex">
-                  <input type={"number"} className="form-control" />
+                  <input
+                    type={"number"}
+                    placeholder="min"
+                    className="form-control"
+                    onChange={(e) => {
+                      let data = { ...filterData };
+                      data.min = e.target.value;
+                      setFilterData(data);
+                    }}
+                  />
                   <p>-</p>
-                  <input type={"number"} className="form-control" />
+                  <input
+                    type={"number"}
+                    className="form-control"
+                    placeholder="max"
+                    onChange={(e) => {
+                      let data = { ...filterData };
+                      data.max = e.target.value;
+                      setFilterData(data);
+                    }}
+                  />
                 </div>
               </div>
               <div className="m-2">
@@ -61,14 +84,37 @@ const FilterModal = (props) => {
                   Select range of PH-value :
                 </b>
                 <div className="d-flex">
-                  <input type={"number"} className="form-control" />
+                  <input
+                    type={"number"}
+                    className="form-control"
+                    onChange={(e) => {
+                      let data = { ...filterData };
+                      data.phMin = e.target.value;
+                      setFilterData(data);
+                    }}
+                  />
                   <p>-</p>
-                  <input type={"number"} className="form-control" />
+                  <input
+                    type={"number"}
+                    className="form-control"
+                    onChange={(e) => {
+                      let data = { ...filterData };
+                      data.phMax = e.target.value;
+                      setFilterData(data);
+                    }}
+                  />
                 </div>
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-success">
+              <button
+                type="button"
+                class="btn btn-success"
+                onClick={() => {
+                  dispatch(filterBeers(filterData));
+                  setFilter(false);
+                }}
+              >
                 Apply
               </button>
             </div>
