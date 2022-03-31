@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router";
+
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 
 const ContentDetail = () => {
   let location = useLocation();
+
+  const [des, setDes] = useState([]);
 
   console.log(location.state.items);
   const {
@@ -41,6 +46,31 @@ const ContentDetail = () => {
             <button className="btn btn-primary">Order</button>
           </div>
         </div>
+      </div>
+      <br />
+      <br />
+      <div className="container">
+        <Tabs>
+          <TabList>
+            <Tab>Description</Tab>
+            <Tab>Ingredients</Tab>
+            <Tab>Food_pairing</Tab>
+            <Tab>Brewers_tips</Tab>
+          </TabList>
+
+          <TabPanel>
+            <b>{description}</b>
+          </TabPanel>
+          <TabPanel>
+            <b>{ingredients}</b>
+          </TabPanel>
+          <TabPanel>
+            <b>{food_pairing}</b>
+          </TabPanel>
+          <TabPanel>
+            <b>{brewers_tips}</b>
+          </TabPanel>
+        </Tabs>
       </div>
     </>
   );
