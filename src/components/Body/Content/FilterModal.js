@@ -69,24 +69,41 @@ const FilterModal = (props) => {
               </div>
               <div className="m-2">
                 <b className="d-flex justify-content-center">
-                  {" "}
                   Select range of ABV :
                 </b>
                 <div className="d-flex">
-                  <input type={"number"} className="form-control" />
+                  <input
+                    type={"number"}
+                    className="form-control"
+                    placeholder="min"
+                    onChange={(e) => {
+                      let data = { ...filterData };
+                      data.abvMin = e.target.value;
+                      setFilterData(data);
+                    }}
+                  />
                   <p>-</p>
-                  <input type={"number"} className="form-control" />
+                  <input
+                    type={"number"}
+                    className="form-control"
+                    placeholder="max"
+                    onChange={(e) => {
+                      let data = { ...filterData };
+                      data.abvMax = e.target.value;
+                      setFilterData(data);
+                    }}
+                  />
                 </div>
               </div>
               <div className="m-2">
                 <b className="d-flex justify-content-center">
-                  {" "}
                   Select range of PH-value :
                 </b>
                 <div className="d-flex">
                   <input
                     type={"number"}
                     className="form-control"
+                    placeholder="min"
                     onChange={(e) => {
                       let data = { ...filterData };
                       data.phMin = e.target.value;
@@ -97,6 +114,7 @@ const FilterModal = (props) => {
                   <input
                     type={"number"}
                     className="form-control"
+                    placeholder="max"
                     onChange={(e) => {
                       let data = { ...filterData };
                       data.phMax = e.target.value;

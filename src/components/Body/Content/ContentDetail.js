@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
 const ContentDetail = () => {
   let location = useLocation();
+  let navigate = useNavigate();
 
   const [des, setDes] = useState([]);
 
@@ -43,7 +44,15 @@ const ContentDetail = () => {
             <i>TagLine : {tagline}</i>
           </div>
           <div className="d-flex justify-content-center mt-4">
-            <button className="btn btn-primary">Order</button>
+            <button
+              className="btn btn-primary"
+              onClick={() => {
+                alert("order is in place");
+                navigate("/")
+              }}
+            >
+              Order
+            </button>
           </div>
         </div>
       </div>
