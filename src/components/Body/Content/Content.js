@@ -6,6 +6,7 @@ import { beerApi } from "../../Redux/Action/BeerAction";
 import "../Content/content.css";
 import { FaFilter } from "react-icons/fa";
 import FilterModal from "./FilterModal";
+import { removeFilter } from "../../Redux/Action/FilterAction";
 
 const Content = (props) => {
   const { setCartData, cartData } = props;
@@ -38,11 +39,9 @@ const Content = (props) => {
         <div className="d-flex flex-row-reverse">
           <button
             className="btn btn-danger"
-            // onClick={(index) => {
-            //   let data = Object.values(filterBeer);
-            //   data.splice(index, data.length);
-            //   console.log(filterBeer);
-            // }}
+            onClick={() => {
+              dispatch(removeFilter());
+            }}
           >
             Remove
           </button>
@@ -62,7 +61,6 @@ const Content = (props) => {
         <div className="row">
           {beers
             ?.filter((items) => {
-              // console.log(items.ibu);
               if (filterBeer?.min && filterBeer?.max) {
                 if (items.ibu > filterBeer.min && items.ibu < filterBeer.max) {
                   return true;

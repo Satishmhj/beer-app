@@ -1,4 +1,9 @@
-import { BEER_LIST, BEER_LIST_FETCHING, FILTER_BEERS } from "../Constant";
+import {
+  BEER_LIST,
+  BEER_LIST_FETCHING,
+  FILTER_BEERS,
+  REMOVE_FILTER,
+} from "../Constant";
 
 const INITIAL_STATE = {
   beers: [],
@@ -23,6 +28,12 @@ const beerReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         filterBeers: action.filters,
+      };
+
+    case REMOVE_FILTER:
+      return {
+        ...state,
+        filterBeers: {},
       };
 
     default:
