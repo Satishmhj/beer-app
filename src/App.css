@@ -65,3 +65,9 @@
     font-weight: 400;
     /* @include rfs(0.83rem); */
   }
+
+  
+.imgCard {
+  width: 30px !important;
+  height: 30px !important;
+}

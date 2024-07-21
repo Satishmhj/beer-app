@@ -3,6 +3,8 @@ import { useLocation, useNavigate } from "react-router";
 
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import ImageCard from "./ImgCard";
+import ImgCard from "./ImgCard";
 
 const ContentDetail = () => {
   let location = useLocation();
@@ -15,9 +17,10 @@ const ContentDetail = () => {
     name,
     tagline,
     description,
-    image_url,
+    image,
     method,
     ingredients,
+    rating,
     food_pairing,
     brewers_tips,
     contributed_by,
@@ -30,7 +33,7 @@ const ContentDetail = () => {
       </div>
       <div className="container d-flex justify-content-around">
         <div style={{ marginLeft: "5em", marginTop: "2em" }}>
-          <img src={`${image_url}`} />
+          <ImgCard image={image} altText={name} />
         </div>
         <div style={{ marginTop: "2em" }}>
           <div className="display-6 text-danger">
@@ -38,17 +41,17 @@ const ContentDetail = () => {
           </div>
           <br />
           <div>
-            <b>contributed_by: {contributed_by}</b>
+            <b>Rating: {rating.average}('convert it in star')</b>
           </div>
           <div>
-            <i>TagLine : {tagline}</i>
+            <i>Review : {rating.reviews}</i>
           </div>
           <div className="d-flex justify-content-center mt-4">
             <button
               className="btn btn-primary"
               onClick={() => {
                 alert("order is in place");
-                navigate("/")
+                navigate("/");
               }}
             >
               Order

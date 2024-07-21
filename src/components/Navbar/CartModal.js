@@ -3,6 +3,7 @@ import { FaTrash } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { RemoveFromCart } from "../Redux/Action/AddToCart";
+import ImgCard from "../Body/Content/ImgCard";
 
 const CartModal = (props) => {
   const { setCartModal, cartData, setCartData, add } = props;
@@ -16,7 +17,7 @@ const CartModal = (props) => {
   return (
     <>
       <div
-        class="modal fade mt-4"
+        className="modal fade mt-4"
         id="exampleModal"
         tabIndex="-1"
         role="dialog"
@@ -24,10 +25,10 @@ const CartModal = (props) => {
         aria-hidden="true"
         style={{ display: "block", opacity: "1" }}
       >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title mt-4" id="exampleModalLabel">
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title mt-4" id="exampleModalLabel">
                 Added Beers
               </h5>
               <button
@@ -47,38 +48,57 @@ const CartModal = (props) => {
                 </span>
               </button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               {cartData.map((items, index) => {
-                const { name, image_url } = items;
+                const { name, image } = items;
                 return (
                   <div className="d-flex justify-content-around">
-                    <div>
-                      <img src={`${image_url}`} style={{ width: "15px" }} />
-                    </div>
-                    <div>
-                      <b>{name}</b>
-                    </div>
-                    <div>
-                      <a>
-                        <FaTrash
-                          onClick={() => {
-                            let data = [...cartData];
-                            data.splice(index, 1);
-                            setCartData(data);
-                            dispatch(RemoveFromCart());
-                          }}
-                        />
-                      </a>
-                    </div>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Image</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <ImgCard
+                              image={image}
+                              altText={name}
+                              className="imgCard"
+                            />
+                          </td>
+                          <td>
+                            <b>{name}</b>
+                          </td>
+
+                          <td>
+                            <a>
+                              <FaTrash
+                                onClick={() => {
+                                  let data = [...cartData];
+                                  data.splice(index, 1);
+                                  setCartData(data);
+                                  dispatch(RemoveFromCart());
+                                }}
+                              />
+                            </a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    
                   </div>
                 );
               })}
             </div>
-            <div class="modal-footer">
+            <div className="modal-footer">
               {add ? (
                 <button
                   type="button"
-                  class="btn btn-success"
+                  className="btn btn-success"
                   onClick={() => {
                     navigate("/checkout");
                     setCartModal(false);
@@ -87,7 +107,7 @@ const CartModal = (props) => {
                   CheckOut
                 </button>
               ) : (
-                <button type="button" class="btn btn-success" disabled>
+                <button type="button" className="btn btn-success" disabled>
                   CheckOut
                 </button>
               )}

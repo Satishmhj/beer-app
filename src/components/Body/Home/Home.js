@@ -6,8 +6,8 @@ import Testimonials from "./Testimonial/Testimonials";
 const Home = () => {
   return (
     <>
-      <div class="banner">
-        <div class="banner-text">
+      <div className="banner">
+        <div className="banner-text">
           <p>
             <p className="display-3 text-black">Welcome to HangOver </p>
             <b className="display-6 text-black">
@@ -15,11 +15,11 @@ const Home = () => {
               <br />
             </b>
             <div className="d-flex pt-4"  style={{paddingLeft: "8em"}}>
-              <button class="btn btn-primary">Learn More</button>
+              <button className="btn btn-primary">Learn More</button>
             </div>
           </p>
         </div>
-        <div class="banner-img">
+        <div className="banner-img">
           {/* <img src="./assets/images/slider-img.png" alt="hero-background" /> */}
         </div>
       </div>

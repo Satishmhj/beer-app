@@ -9,6 +9,8 @@ import CartModal from "./CartModal";
 import { useSelector } from "react-redux";
 // import "bootstrap/dist/js/bootstrap";
 
+import logo from '../../assets/images/logo.jpg'
+
 const Navbar = (props) => {
   const { setCartData, cartData } = props;
   let navigate = useNavigate();
@@ -31,12 +33,12 @@ const Navbar = (props) => {
       <nav className="navbar navbar-expand-lg navbar-light  d-flex justify-content-around bg-primary">
         <div className="">
           <img
-            src="https://c8.alamy.com/comp/2BWGA6H/beer-icon-thin-line-for-web-and-mobile-modern-minimalistic-flat-design-2BWGA6H.jpg"
+            src={logo}
             alt="logo"
-            style={{ width: "42px", height: "auto", borderRadius: "26px" }}
+            style={{ width: "42px", height: "auto", borderRadius: "30px" }}
           />
           <a
-            class="navbar-brand text-white"
+            className="navbar-brand text-white"
             href="#"
             style={{ paddingLeft: "5px" }}
             onClick={() => {
@@ -47,7 +49,7 @@ const Navbar = (props) => {
           </a>
         </div>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarSupportedContent"
@@ -55,15 +57,15 @@ const Navbar = (props) => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
 
         <div>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item active">
                 <a
-                  class="nav-link text-white d-flex justify-content-center"
+                  className="nav-link text-white d-flex justify-content-center align-items-center"
                   href="#"
                   onClick={() => {
                     navigate("/");
@@ -73,9 +75,9 @@ const Navbar = (props) => {
                   Home
                 </a>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 <a
-                  class="nav-link text-white d-flex justify-content-center"
+                  className="nav-link text-white d-flex justify-content-center align-items-center"
                   href="#"
                   onClick={() => {
                     navigate("/content");
@@ -85,9 +87,9 @@ const Navbar = (props) => {
                   Cheers
                 </a>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 <a
-                  class="nav-link text-white  d-flex justify-content-center"
+                  className="nav-link text-white d-flex justify-content-center align-items-center"
                   href="#"
                   onClick={() => {
                     setCartModal(true);
@@ -97,18 +99,18 @@ const Navbar = (props) => {
                   <BsFillCartFill />
                   <div>
                     <span
-                      class="position-absolute  translate-middle badge rounded-pill bg-danger border rounded-circle"
+                      className="position-absolute  translate-middle badge rounded-pill bg-danger border rounded-circle"
                       style={{ marginLeft: "15px" }}
                     >
                       {add}
-                      <span class="visually-hidden">unread messages</span>
+                      <span className="visually-hidden">unread messages</span>
                     </span>
                   </div>
                 </a>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 <a
-                  class="nav-link text-white  d-flex justify-content-center"
+                  className="nav-link text-white d-flex justify-content-center align-items-center"
                   href="#"
                   onClick={() => {
                     navigate("/login");
